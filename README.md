@@ -6,6 +6,24 @@ This is a library of configuration scripts and utilities for running Gem5 simula
 
 These directions assume you have a compiled version of Gem5's latest release (v22.1 or later!) in `$GEM5_HOME`.  You should also set an environment variable `$GEM5_RESOURCE_DIR` to wherever you want to store downloaded resources (e.g., built-in disk and kernel images).  Many of these examples also assume you're working on a machine with KVM.  Lastly, you're assumed to have read permission to `/scratch/cluster/speedway`, where shared Gem5 resources like disk images reside.
 
+## Preparation
+
+To build gem5 on the pedagogical-{1, 2, 3, 4} machines, we'll use a pre-defined [Conda](https://docs.conda.io/projects/conda/en/latest/index.html) environment. We've already set up the environment for you on each machine. For the shell you're using, run one of the following commands to activate the environment:
+
+- bash: `source ./activate-env.sh`
+- zsh: `source ./activate-env.zsh`
+- fish: `source ./activate-env.fish`
+
+If you're using another shell (e.g. tcsh, xonsh), reach out to the TAs and we can write a script for you.
+
+Please note that everything you do with gem5, including **building**, **running**, and **testing**, **must be done within this environment!** That is, you **must run this script every time you open a new terminal**. Otherwise, you may get strange, unintuitive errors such as a "missing Python installation" or linker errors.
+
+To verify that your environment is set up correctly, run the following command and verify your output matches:
+```shell
+> which python
+/var/local/speedway/envs/gem5-cs-395t/bin/python3
+```
+
 ## Overview
 
 Whenever you want to run a Gem5 simulation, you should begin by writing a ***top-level config script*** for the system and workload you want to simulate.  (Once upon a time, there were only two of these: the infamous `fs.py` and `se.py`, which you can still find in `$GEM5_HOME/configs/example/`.  These config scripts are deprecated!  They grew impractically large and complex and often don't do what they profess to).
