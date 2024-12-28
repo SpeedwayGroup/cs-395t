@@ -1,14 +1,23 @@
 # Gem5 Config Script Library
 
-This is a library of configuration scripts and utilities for running Gem5 simulations in both full-system (FS) and syscall-emulation (SE) modes.
-
-## Requirements
-
-These directions assume you have a compiled version of Gem5's latest release (v22.1 or later!) in `$GEM5_HOME`.  You should also set an environment variable `$GEM5_RESOURCE_DIR` to wherever you want to store downloaded resources (e.g., built-in disk and kernel images).  Many of these examples also assume you're working on a machine with KVM.  Lastly, you're assumed to have read permission to `/scratch/cluster/speedway`, where shared Gem5 resources like disk images reside.
+This is a library of configuration scripts and utilities for running gem5 simulations in both full-system (FS) and syscall-emulation (SE) modes, for students in our CS 395T course.
 
 ## Preparation
 
-To build gem5 on the pedagogical-{1, 2, 3, 4} machines, we'll use a pre-defined [Conda](https://docs.conda.io/projects/conda/en/latest/index.html) environment. We've already set up the environment for you on each machine. For the shell you're using, run one of the following commands to activate the environment:
+### Environment variables
+
+First, you'll need to set up a couple of environment variables. 
+
+- `$GEM5_HOME` should point to the root directory of your copy of gem5, and contain a compiled version in `build/`.
+- `$GEM5_RESOURCE_DIR` should point to the directory where you want to store download resources (e.g. built-in disk and kernel images).
+
+You'll also need read permission to `/scratch/cluster/speedway`, where shared Gem5 resources like disk images reside.
+
+### Conda environment
+
+Second, you'll need to set up the Conda environment for gem5.
+
+To build and run gem5 on the pedagogical-{1, 2, 3, 4} machines, we created a pre-defined [Conda](https://docs.conda.io/projects/conda/en/latest/index.html) environment for you on each machine. For the shell you're using, run one of the following commands to activate the environment:
 
 - bash: `source ./activate-env.sh`
 - zsh: `source ./activate-env.zsh`
@@ -16,12 +25,16 @@ To build gem5 on the pedagogical-{1, 2, 3, 4} machines, we'll use a pre-defined 
 
 If you're using another shell (e.g. tcsh, xonsh), reach out to the TAs and we can write a script for you.
 
-Please note that everything you do with gem5, including **building**, **running**, and **testing**, **must be done within this environment!** That is, you **must run this script every time you open a new terminal**. Otherwise, you may get strange, unintuitive errors such as a "missing Python installation" or linker errors.
+> [!WARNING]
+> Everything you do with gem5, including **building**, **running**, and **testing**, **must be done within this Conda environment!** Therefore, you **must run this command every time you open a new terminal**! Otherwise, you may get strange, unintuitive errors such as a missing Python installation or missing libraries.
 
-To verify that your environment is set up correctly, run the following command and verify your output matches:
+To verify that your environment is set up correctly, run the following commands and verify your outputs match:
 ```shell
 > which python
 /var/local/speedway/envs/gem5-cs-395t/bin/python3
+
+> echo $CONDA_PREFIX
+/var/local/speedway/envs/gem5-cs-395t
 ```
 
 ## Overview
