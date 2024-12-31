@@ -8,11 +8,8 @@ function path_prepend
     set -l dir_to_prepend $argv[2]
     set -l path_var (eval echo \$$var_name)
 
-    # Remove duplicates of the directory
-    set path_var (string replace -r ":?$dir_to_remove:?|$dir_to_remove:?|:?$dir_to_remove" "" $path_var)
-
     # Prepend the directory to the path variable
-    set path_var $dir_to_prepend:$path_var
+    set path_var $dir_to_prepend $path_var
 
     # Export the modified path variable
     set -x $var_name $path_var

@@ -8,9 +8,6 @@ path_prepend() {
     local dir_to_prepend="$2"
     local path_var="${!var_name}"
 
-    # Remove duplicates of the directory
-    path_var=$(echo "$path_var" | /bin/sed -e "s#:$dir_to_prepend##g" -e "s#$dir_to_prepend:##g" -e "s#$dir_to_prepend##g")
-
     # Prepend the directory to the path variable
     path_var="$dir_to_prepend:$path_var"
 

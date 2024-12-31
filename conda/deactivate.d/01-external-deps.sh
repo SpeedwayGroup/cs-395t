@@ -26,9 +26,30 @@ path_remove() {
     export "$var_name"="$path_var"
 }
 
-path_remove  CPATH              "$CONDA_PREFIX/include"
-path_remove  C_INCLUDE_PATH     "$CONDA_PREFIX/include"
-path_remove  CPLUS_INCLUDE_PATH "$CONDA_PREFIX/include"
-path_remove  LIBRARY_PATH       "$CONDA_PREFIX/lib"
-path_remove  LD_LIBRARY_PATH    "$CONDA_PREFIX/lib"
+#
+# mold
+#
+__mold_version="2.35.1"
+__mold_dir="/scratch/cluster/speedway/opt/mold/$__mold_version"
 
+path_remove  PATH                "$__mold_dir/bin"
+
+unset __mold_version
+unset __mold_dir
+
+#
+# gcc
+#
+__gcc_version="13.3.0"
+__gcc_dir="/scratch/cluster/speedway/opt/gcc/$__gcc_version"
+
+path_remove  CPATH              "$__gcc_dir/include"
+path_remove  C_INCLUDE_PATH     "$__gcc_dir/include"
+path_remove  CPLUS_INCLUDE_PATH "$__gcc_dir/include"
+path_remove  LIBRARY_PATH       "$__gcc_dir/lib"
+path_remove  LD_LIBRARY_PATH    "$__gcc_dir/lib64"
+path_remove  LD_LIBRARY_PATH    "$__gcc_dir/lib"
+path_remove  PATH               "$__gcc_dir/bin"
+
+unset __gcc_version
+unset __gcc_dir

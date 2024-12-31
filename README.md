@@ -2,7 +2,7 @@
 
 This is a library of configuration scripts and utilities for running gem5 simulations in both full-system (FS) and syscall-emulation (SE) modes, for students in our CS 395T course.
 
-## Preparation
+## Setup
 
 ### Environment variables
 
@@ -11,7 +11,14 @@ First, you'll need to set up a couple of environment variables.
 - `$GEM5_HOME` should point to the root directory of your copy of gem5, and contain a compiled version in `build/`.
 - `$GEM5_RESOURCE_DIR` should point to the directory where you want to store download resources (e.g. built-in disk and kernel images).
 
-You'll also need read permission to `/scratch/cluster/speedway`, where shared Gem5 resources like disk images reside.
+A good place to keep this is in your shell's config file, e.g. `~/.bashrc`, or ~/.zshrc`. Here's an example for bash:
+
+```shell
+export GEM5_HOME=/path/to/gem5
+export GEM5_RESOURCE_DIR=/path/to/gem5-resources
+```
+
+You'll also need read permission to `/scratch/cluster/speedway`, where shared gem5 resources like disk images reside. If you get any permission denied errors, please reach out to the TAs.
 
 ### Conda environment
 
@@ -21,6 +28,31 @@ See [conda/README.md](conda/README.md) for instructions on how to set up the Con
 
 > [!WARNING]
 > Everything you do with gem5, including **building**, **running**, and **testing**, **must be done within the Conda environment!** Therefore, you **must activate the environment every time you open a new terminal**! Otherwise, you may get strange, unintuitive errors such as a missing Python installation or missing libraries.
+
+### Building gem5
+
+With the Conda environment activated, build gem5 with the following commmand:
+
+```shell
+scons build/X86/gem5.opt -j8 --linker=mold
+```
+
+Here's what each part of that command means:
+- `scons`: Run the SConscript build tool
+- `build/X86/gem5.opt`: Build gem5...
+  - With the `X86` **build config**, which supports executing programs compiled into the X86 ISA, and a two-level Ruby cache hierarchy. (see the `build_opts/X86` file)
+  - With the `opt` **build variant**, which performs optimizations while compiling and keeps debugging flags inside the binary. (see the documentation link below)
+- `-j8`: Use 8 cores to build the binary in parallel, which is much faster than building serially.
+- `--linker=mold`: Use the [mold](https://github.com/rui314/mold) linker, which is much faster at linking the parts of the binary together.
+
+A generic form of the build command above is:
+```shell
+scons build/{config}/gem5.{variant} -j{cpus} --linker={linker}
+```
+
+#### References
+- [(gem5 Documentation) Building gem5](https://www.gem5.org/documentation/general_docs/building)
+- [(gem5 Blog) Benchmarking linkers within gem5](https://www.gem5.org/project/2023/02/16/benchmarking-linkers.html)
 
 
 ## Overview
