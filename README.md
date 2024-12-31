@@ -17,25 +17,11 @@ You'll also need read permission to `/scratch/cluster/speedway`, where shared Ge
 
 Second, you'll need to set up the Conda environment for gem5.
 
-To build and run gem5 on the pedagogical-{1, 2, 3, 4} machines, we created a pre-defined [Conda](https://docs.conda.io/projects/conda/en/latest/index.html) environment for you on each machine. For the shell you're using, run one of the following commands to activate the environment:
-
-- bash: `source ./activate-env.sh`
-- zsh: `source ./activate-env.zsh`
-- fish: `source ./activate-env.fish`
-
-If you're using another shell (e.g. tcsh, xonsh), reach out to the TAs and we can write a script for you.
+See [conda/README.md](conda/README.md) for instructions on how to set up the Conda environment.
 
 > [!WARNING]
-> Everything you do with gem5, including **building**, **running**, and **testing**, **must be done within this Conda environment!** Therefore, you **must run this command every time you open a new terminal**! Otherwise, you may get strange, unintuitive errors such as a missing Python installation or missing libraries.
+> Everything you do with gem5, including **building**, **running**, and **testing**, **must be done within the Conda environment!** Therefore, you **must activate the environment every time you open a new terminal**! Otherwise, you may get strange, unintuitive errors such as a missing Python installation or missing libraries.
 
-To verify that your environment is set up correctly, run the following commands and verify your outputs match:
-```shell
-> which python
-/var/local/speedway/envs/gem5-cs-395t/bin/python3
-
-> echo $CONDA_PREFIX
-/var/local/speedway/envs/gem5-cs-395t
-```
 
 ## Overview
 

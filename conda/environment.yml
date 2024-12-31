@@ -1,0 +1,10 @@
+name: gem5-cs-395t
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.13
+  - mypy
+  - precommit
+  - hdf5
+  - capstone
