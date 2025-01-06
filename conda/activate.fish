@@ -4,8 +4,8 @@
 # Run using:
 # source ./activate-env.fish
 
-set -l conda_dir "/var/local/speedway/miniforge3"
-set -l conda_prefix "/var/local/speedway/envs/gem5-cs-395t"
+set -l conda_dir "/scratch/cluster/speedway/opt/miniforge3"
+set -l conda_prefix "/scratch/cluster/speedway/opt/miniforge3/envs/gem5-cs-395t"
 
 #
 # Set up Conda
@@ -47,4 +47,4 @@ end
 # Activate the environment
 #
 echo "Activating environment at $conda_prefix"
-mamba activate $conda_prefix | source
+mamba activate $conda_prefix

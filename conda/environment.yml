@@ -1,10 +1,29 @@
 name: gem5-cs-395t
 channels:
-  - defaults
   - conda-forge
 dependencies:
   - python=3.13
+  - pre-commit
   - mypy
-  - precommit
-  - hdf5
-  - capstone
+  # - boost-cpp
+  # - cmake
+  # - capstone
+  # - doxygen
+  # - elfutils
+  # - gcc=10
+  # - gperftools
+  # - gxx=10
+  # - hdf5
+  # - libpng
+  # - libprotobuf
+  # - m4
+  # - mold
+  # - mypy
+  # - pkg-config
+  # - pre-commit
+  # - protobuf
+  # - python=3.13
+  # - pydot
+  # - scons
+  # - tk
+  # - zlib
