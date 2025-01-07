@@ -1,0 +1,31 @@
+# gem5 Conda environment that is self-contained, by having every package and 
+# tool included inside the environment.
+#
+# TODO: Fix excessive -Wnon-virtual-dtor warnings when compiling.
+
+name: gem5-cs-395t-full
+channels:
+  - conda-forge
+dependencies:
+  - boost-cpp
+  - cmake
+  - capstone
+  - doxygen
+  - elfutils
+  - gcc=13
+  - gperftools
+  - gxx=13
+  - hdf5
+  - libpng
+  - libprotobuf
+  - m4
+  - mold
+  - mypy
+  - pkg-config
+  - pre-commit
+  - protobuf
+  - python=3.13
+  - pydot
+  - scons
+  - tk
+  - zlib
