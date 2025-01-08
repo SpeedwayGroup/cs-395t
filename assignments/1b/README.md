@@ -1,4 +1,4 @@
-# Assignment 1b
+# Assignment 1b: ChampSim Experimentation
 **Due TBD at 11:59pm CST**
 
 In this assignment you will implement either a **branch predictor** or **cache

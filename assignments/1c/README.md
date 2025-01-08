@@ -1,4 +1,4 @@
-# Assignment 1c
+# Assignment 1c: gem5 Experimentation
 **Due TBD at 11:59pm CST**
 
 In this assignment you will add either a branch predictor or a cache

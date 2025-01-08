@@ -1,4 +1,4 @@
-# Assignment 2
+# Assignment 2: gem5 Multicore Prefetching
 **Due TBD at 11:59pm CST**
 
 In this assignment you will add a prefetcher to the Gem5 simulator and

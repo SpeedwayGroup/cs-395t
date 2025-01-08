@@ -1,4 +1,4 @@
-# Assignment 1a
+# Assignment 1a: Microarchitectural Simulators
 **Due January 27th, 2024 at 11:59pm CST**
 
 In this assignment, you will configure, build, and run two
@@ -57,7 +57,7 @@ through 4) with your CS ID.
 ssh pedagogical-1.cs.utexas.edu
 ```
 
-For this clases, we allocated some scratch space on the UT machines for you at
+For this class, we allocated some scratch space on the UT machines for you at
 at `/projects/coursework/2025-spring/cs395t-lin/`. This directory should be
 accessible on all the pedagogical machines as well as most other UTCS machines.
 

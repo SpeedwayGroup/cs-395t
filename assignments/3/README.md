@@ -1,4 +1,4 @@
-# Assignment 3
+# Assignment 3: Project Ideas
 **Due TBD at 11:59pm CDT**
 
 By March 29th at 11:59 PM CDT, submit a private note on Ed Discussion
