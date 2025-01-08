@@ -1,6 +1,6 @@
-# gem5 Conda environment for running on the UTCS pedagogical machines.
+# Conda environment for running gem5 and ChampSim on UTCS machines.
 
-name: gem5-cs-395t
+name: cs-395t
 channels:
   - conda-forge
 dependencies:

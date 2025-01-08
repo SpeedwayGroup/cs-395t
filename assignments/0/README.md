@@ -1,14 +1,12 @@
 # Assignment 0: Setup
+**Due January 20th, 2024 at 10:00am CST**
 
-**TODO**: Write assignment to help students set up, compile, and run
-"hello world"-level simulations on gem5 and ChampSim.
-
-This assignment won't be graded and isn't worth any points, but will help
-**set you up for success in later assignments**. You will be getting your
-workspace set up on the UTCS machines so that you can work with two popular
-microarchitectural simulators: gem5 and ChampSim. We'll simply get them to run
-for this assignment. In the coming weeks, you'll begin experimenting with these
-two simulators!
+This assignment won't be graded and isn't worth any points, but will
+**set you up for success in later assignments**. You will set up your workspace
+on the UTCS machines so that you can work with two popular microarchitectural 
+simulators: gem5 and ChampSim. We'll simply get them to run for this assignment. 
+In the coming weeks, you'll be experimenting with new ideas for 
+microarchitectural prediction mechanisms using these two simulators!
 
 # Part 1: Initial Setup
 
@@ -70,7 +68,7 @@ Depending on your shell, run one of the following commands:
 <summary>bash</summary>
 
 ```shell
-source ./gem5-configs-395t/conda/activate.bash
+source ./cs-395t/conda/activate.bash
 ```
 
 </details>
@@ -79,7 +77,7 @@ source ./gem5-configs-395t/conda/activate.bash
 <summary>zsh</summary>
 
 ```shell
-source /gem5-configs-395t/conda/activate.zsh
+source ./cs-395t/conda/activate.zsh
 ```
 
 </details>
@@ -88,7 +86,7 @@ source /gem5-configs-395t/conda/activate.zsh
 <summary>fish</summary>
 
 ```shell
-source ./gem5-configs-395t/conda/activate.fish
+source ./cs-395t/conda/activate.fish
 ```
 
 </details>
@@ -112,11 +110,11 @@ Inside your personal folder, clone a fresh copy of gem5 from its
 git clone https://github.com/gem5/gem5
 ```
 
-Also, clone a copy of our configs repository, which will help you set up
-and run gem5 on the pedagogical machines.
+Also, clone a copy of our CS 395T repository, which will help you set up
+and run gem5 and ChampSim on the UTCS machines.
 
 ```shell
-git clone https://github.com/SpeedwayGroup/gem5-configs-395t
+git clone https://github.com/SpeedwayGroup/cs-395t
 ```
 
 ## Building gem5
@@ -175,7 +173,7 @@ don't worry too much about the specific command for now.
 Make sure you're inside your gem5 directory. Then, run the following command:
 
 ```shell
-build/X86/gem5.opt ../gem5-configs-395t/assignments/0/se-hello-world.py
+build/X86/gem5.opt ../cs-395t/assignments/0/se-hello-world.py
 ```
 
 You're welcome to look at `se-hello-world.py` to see how the simulation
@@ -194,7 +192,7 @@ gem5 version 24.1.0.1
 gem5 compiled Jan  8 2025 08:42:21
 gem5 started Jan  8 2025 08:47:56
 gem5 executing on pedagogical-4, pid 1810550
-command line: ./build/X86/gem5.opt ../gem5-configs-395t/assignments/0/se-hello-world.py
+command line: ./build/X86/gem5.opt ../cs-395t/assignments/0/se-hello-world.py
 
 Beginning simulation!
 Global frequency set at 1000000000000 ticks per second
@@ -332,119 +330,6 @@ discuss how to analyze these results further in Assignment 1a.
 <summary>Sample output</summary>
 
 ```
-[VMEM] WARNING: physical memory size is smaller than virtual memory size.
-
-*** ChampSim Multicore Out-of-Order Simulator ***
-Warmup Instructions: 100000
-Simulation Instructions: 100000
-Number of CPUs: 1
-Page size: 4096
-
-Off-chip DRAM Size: 16 GiB Channels: 1 Width: 64-bit Data Rate: 3205 MT/s
-Warmup finished CPU 0 instructions: 100002 cycles: 38837 cumulative IPC: 2.575 (Simulation time: 00 hr 00 min 04 sec)
-Warmup complete CPU 0 instructions: 100002 cycles: 38837 cumulative IPC: 2.575 (Simulation time: 00 hr 00 min 04 sec)
-Simulation finished CPU 0 instructions: 100002 cycles: 262277 cumulative IPC: 0.3813 (Simulation time: 00 hr 00 min 08 sec)
-Simulation complete CPU 0 instructions: 100002 cycles: 262277 cumulative IPC: 0.3813 (Simulation time: 00 hr 00 min 08 sec)
-
-ChampSim completed all CPUs
-
-=== Simulation ===
-CPU 0 runs /scratch/cluster/speedway/cs395t/hw1a/champsim/matmul_small.xz
-
-Region of Interest Statistics
-
-CPU 0 cumulative IPC: 0.3813 instructions: 100002 cycles: 262277
-CPU 0 Branch Prediction Accuracy: 85.74% MPKI: 25.02 Average ROB Occupancy at Mispredict: 12.45
-Branch type MPKI
-BRANCH_DIRECT_JUMP: 0.41
-BRANCH_INDIRECT: 0.1
-BRANCH_CONDITIONAL: 23.32
-BRANCH_DIRECT_CALL: 0.49
-BRANCH_INDIRECT_CALL: 0.12
-BRANCH_RETURN: 0.58
-
-cpu0->cpu0_STLB TOTAL        ACCESS:         38 HIT:          8 MISS:         30 MSHR_MERGE:          0
-cpu0->cpu0_STLB LOAD         ACCESS:         38 HIT:          8 MISS:         30 MSHR_MERGE:          0
-cpu0->cpu0_STLB RFO          ACCESS:          0 HIT:          0 MISS:          0 MSHR_MERGE:          0
-cpu0->cpu0_STLB PREFETCH     ACCESS:          0 HIT:          0 MISS:          0 MSHR_MERGE:          0
-cpu0->cpu0_STLB WRITE        ACCESS:          0 HIT:          0 MISS:          0 MSHR_MERGE:          0
-cpu0->cpu0_STLB TRANSLATION  ACCESS:          0 HIT:          0 MISS:          0 MSHR_MERGE:          0
-cpu0->cpu0_STLB PREFETCH REQUESTED:          0 ISSUED:          0 USEFUL:          0 USELESS:          0
-cpu0->cpu0_STLB AVERAGE MISS LATENCY: 464.2 cycles
-cpu0->cpu0_L2C TOTAL        ACCESS:       1854 HIT:        491 MISS:       1363 MSHR_MERGE:          0
-cpu0->cpu0_L2C LOAD         ACCESS:       1442 HIT:        280 MISS:       1162 MSHR_MERGE:          0
-cpu0->cpu0_L2C RFO          ACCESS:        204 HIT:         33 MISS:        171 MSHR_MERGE:          0
-cpu0->cpu0_L2C PREFETCH     ACCESS:          0 HIT:          0 MISS:          0 MSHR_MERGE:          0
-cpu0->cpu0_L2C WRITE        ACCESS:        174 HIT:        174 MISS:          0 MSHR_MERGE:          0
-cpu0->cpu0_L2C TRANSLATION  ACCESS:         34 HIT:          4 MISS:         30 MSHR_MERGE:          0
-cpu0->cpu0_L2C PREFETCH REQUESTED:          0 ISSUED:          0 USEFUL:          0 USELESS:          0
-cpu0->cpu0_L2C AVERAGE MISS LATENCY: 183 cycles
-cpu0->cpu0_L1I TOTAL        ACCESS:       5389 HIT:       5131 MISS:        258 MSHR_MERGE:         42
-cpu0->cpu0_L1I LOAD         ACCESS:       5389 HIT:       5131 MISS:        258 MSHR_MERGE:         42
-cpu0->cpu0_L1I RFO          ACCESS:          0 HIT:          0 MISS:          0 MSHR_MERGE:          0
-cpu0->cpu0_L1I PREFETCH     ACCESS:          0 HIT:          0 MISS:          0 MSHR_MERGE:          0
-cpu0->cpu0_L1I WRITE        ACCESS:          0 HIT:          0 MISS:          0 MSHR_MERGE:          0
-cpu0->cpu0_L1I TRANSLATION  ACCESS:          0 HIT:          0 MISS:          0 MSHR_MERGE:          0
-cpu0->cpu0_L1I PREFETCH REQUESTED:          0 ISSUED:          0 USEFUL:          0 USELESS:          0
-cpu0->cpu0_L1I AVERAGE MISS LATENCY: 200 cycles
-cpu0->cpu0_L1D TOTAL        ACCESS:      24015 HIT:      19367 MISS:       4648 MSHR_MERGE:       3184
-cpu0->cpu0_L1D LOAD         ACCESS:      19560 HIT:      17097 MISS:       2463 MSHR_MERGE:       1237
-cpu0->cpu0_L1D RFO          ACCESS:          0 HIT:          0 MISS:          0 MSHR_MERGE:          0
-cpu0->cpu0_L1D PREFETCH     ACCESS:          0 HIT:          0 MISS:          0 MSHR_MERGE:          0
-cpu0->cpu0_L1D WRITE        ACCESS:       4418 HIT:       2267 MISS:       2151 MSHR_MERGE:       1947
-cpu0->cpu0_L1D TRANSLATION  ACCESS:         37 HIT:          3 MISS:         34 MSHR_MERGE:          0
-cpu0->cpu0_L1D PREFETCH REQUESTED:          0 ISSUED:          0 USEFUL:          0 USELESS:          0
-cpu0->cpu0_L1D AVERAGE MISS LATENCY: 150.8 cycles
-cpu0->cpu0_ITLB TOTAL        ACCESS:       4347 HIT:       4315 MISS:         32 MSHR_MERGE:         12
-cpu0->cpu0_ITLB LOAD         ACCESS:       4347 HIT:       4315 MISS:         32 MSHR_MERGE:         12
-cpu0->cpu0_ITLB RFO          ACCESS:          0 HIT:          0 MISS:          0 MSHR_MERGE:          0
-cpu0->cpu0_ITLB PREFETCH     ACCESS:          0 HIT:          0 MISS:          0 MSHR_MERGE:          0
-cpu0->cpu0_ITLB WRITE        ACCESS:          0 HIT:          0 MISS:          0 MSHR_MERGE:          0
-cpu0->cpu0_ITLB TRANSLATION  ACCESS:          0 HIT:          0 MISS:          0 MSHR_MERGE:          0
-cpu0->cpu0_ITLB PREFETCH REQUESTED:          0 ISSUED:          0 USEFUL:          0 USELESS:          0
-cpu0->cpu0_ITLB AVERAGE MISS LATENCY: 417.2 cycles
-cpu0->cpu0_DTLB TOTAL        ACCESS:      21951 HIT:      21914 MISS:         37 MSHR_MERGE:         19
-cpu0->cpu0_DTLB LOAD         ACCESS:      21951 HIT:      21914 MISS:         37 MSHR_MERGE:         19
-cpu0->cpu0_DTLB RFO          ACCESS:          0 HIT:          0 MISS:          0 MSHR_MERGE:          0
-cpu0->cpu0_DTLB PREFETCH     ACCESS:          0 HIT:          0 MISS:          0 MSHR_MERGE:          0
-cpu0->cpu0_DTLB WRITE        ACCESS:          0 HIT:          0 MISS:          0 MSHR_MERGE:          0
-cpu0->cpu0_DTLB TRANSLATION  ACCESS:          0 HIT:          0 MISS:          0 MSHR_MERGE:          0
-cpu0->cpu0_DTLB PREFETCH REQUESTED:          0 ISSUED:          0 USEFUL:          0 USELESS:          0
-cpu0->cpu0_DTLB AVERAGE MISS LATENCY: 322.4 cycles
-cpu0->LLC TOTAL        ACCESS:       1363 HIT:          0 MISS:       1363 MSHR_MERGE:          0
-cpu0->LLC LOAD         ACCESS:       1162 HIT:          0 MISS:       1162 MSHR_MERGE:          0
-cpu0->LLC RFO          ACCESS:        171 HIT:          0 MISS:        171 MSHR_MERGE:          0
-cpu0->LLC PREFETCH     ACCESS:          0 HIT:          0 MISS:          0 MSHR_MERGE:          0
-cpu0->LLC WRITE        ACCESS:          0 HIT:          0 MISS:          0 MSHR_MERGE:          0
-cpu0->LLC TRANSLATION  ACCESS:         30 HIT:          0 MISS:         30 MSHR_MERGE:          0
-cpu0->LLC PREFETCH REQUESTED:          0 ISSUED:          0 USEFUL:          0 USELESS:          0
-cpu0->LLC AVERAGE MISS LATENCY: 167 cycles
-
-DRAM Statistics
-
-Channel 0 RQ ROW_BUFFER_HIT:        156
-  ROW_BUFFER_MISS:       1205
-  AVG DBUS CONGESTED CYCLE: 2.855
-Channel 0 WQ ROW_BUFFER_HIT:          0
-  ROW_BUFFER_MISS:          0
-  FULL:          0
-Channel 0 REFRESHES ISSUED:         22
-[+] pedagogical-4 /v/l/c/ChampSim >
-./bin/champsim -w 1000000 -i 1000000 /scratch/cluster/speedway/cs395t/hw1a/champsim/matmul_small.xz
-[+] pedagogical-4 /v/l/c/ChampSim >
-./bin/champsim -w 1000000 -i 1000000 /scratch/cluster/speedway/cs395t/hw1a/champsim/matmul_small.xz
-[VMEM] WARNING: physical memory size is smaller than virtual memory size.
-
-*** ChampSim Multicore Out-of-Order Simulator ***
-Warmup Instructions: 1000000
-Simulation Instructions: 1000000
-Number of CPUs: 1
-Page size: 4096
-
-Off-chip DRAM Size: 16 GiB Channels: 1 Width: 64-bit Data Rate: 3205 MT/s
-^C⏎                                                                                                     [+] pedagogical-4 /v/l/c/ChampSim >                                         [🐙 master][🐍 gem5-cs-395t]
-[+] pedagogical-4 /v/l/c/ChampSim >
-./bin/champsim -w 1000000 -i 1000000 /scratch/cluster/speedway/cs395t/hw1a/champsim/matmul_small.xz
 [VMEM] WARNING: physical memory size is smaller than virtual memory size.
 
 *** ChampSim Multicore Out-of-Order Simulator ***

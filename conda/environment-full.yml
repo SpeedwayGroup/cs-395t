@@ -1,9 +1,12 @@
-# gem5 Conda environment that is self-contained, by having every package and 
-# tool included inside the environment.
+# Conda environment for running gem5 and ChampSim on UTCS machines, but
+# self-contained.
+#
+# That is, this version of the environment has every library, package, and 
+# tool included, for systems which may not have everything installed.
 #
 # TODO: Fix excessive -Wnon-virtual-dtor warnings when compiling.
 
-name: gem5-cs-395t-full
+name: cs-395t-full
 channels:
   - conda-forge
 dependencies:

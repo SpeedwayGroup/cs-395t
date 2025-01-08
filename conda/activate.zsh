@@ -5,7 +5,7 @@
 # source ./activate-env.zsh
 
 __conda_dir="/scratch/cluster/speedway/opt/miniforge3"
-__conda_prefix="/scratch/cluster/speedway/opt/miniforge3/envs/gem5-cs-395t"
+__conda_prefix="/scratch/cluster/speedway/opt/miniforge3/envs/cs-395t"
 
 #
 # Set up Conda
